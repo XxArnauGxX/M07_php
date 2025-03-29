@@ -1,6 +1,6 @@
 <?php
 
-function suma()
+function sumaDeTodos()
 {
     $resultado = 0;
     for ($i = 1; $i <= 100; $i++) {
@@ -9,4 +9,4 @@ function suma()
     return $resultado;
 }
 
-echo suma();
+echo sumaDeTodos();
