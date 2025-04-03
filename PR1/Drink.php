@@ -16,4 +16,9 @@ class Drink extends Expendable implements Naming
 
         $this->tax = $tax;
     }
+
+    public function __toString(): string
+    {
+        return "Name: {$this->name}, Weight: {$this->weight}kg, Price: {$this->price}€, Is new: " . ($this->isNew ? 'true' : 'false') . ", Expire date: {$this->expireDate->format('Y-m-d')}, Tax: {$this->tax}, Alcoholic: " . ($this->isAlcoholic ? 'true' : 'false') . ", Volume: {$this->volume}";
+    }
 }
