@@ -4,10 +4,10 @@ require_once 'Naming.php';
 
 abstract class Item implements Naming
 {
-    public string $name;
-    public float $weight;
-    public float $price;
-    public bool $isNew;
+    protected string $name;
+    protected float $weight;
+    protected float $price;
+    protected bool $isNew;
 
     protected function __construct(string $name, float $weight, float $price, bool $isNew)
     {

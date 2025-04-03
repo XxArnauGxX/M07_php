@@ -5,10 +5,10 @@ require_once 'Expendable.php';
 
 class Food extends Expendable implements Naming
 {
-    public array $type;
-    public function __construct(DateTime $expireDate, float $tax, array $type)
+    protected array $type;
+    public function __construct(string $name, float $weight, float $price, bool $isNew, string $expireDate, float $tax, array $type)
     {
-        parent::__construct($expireDate, $tax);
+        parent::__construct($name, $weight, $price, $isNew, $expireDate, $tax);
 
         foreach ($type as $t) {
             if (!is_string($t)) {

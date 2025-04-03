@@ -1,8 +1,8 @@
 <?php
 
 class NoExpendable extends Item implements Naming {
-    public ?DateTime $warrantyDueDate = null;
-    public DateTime $purchaseDate;
+    protected ?DateTime $warrantyDueDate = null;
+    protected DateTime $purchaseDate;
     public const TAX = 21;
 
     public function __construct(string $name, float $weight, float $price, bool $isNew, DateTime $purchaseDate) {
@@ -20,8 +20,7 @@ class NoExpendable extends Item implements Naming {
     }
 
     public function calcPriceWithTax(): float {
-        $tax = self::TAX / 100;
-        return $this->price + ($this->price * $tax);
+        return $this->price + ($this->price * (self::TAX / 100));
     }
 
     public function getWarrantyDueDate(): ?DateTime {

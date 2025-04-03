@@ -2,19 +2,17 @@
 
 class Drink extends Expendable implements Naming
 {
-    public bool $isAlcoholic;
-    public float $volume;
+    protected bool $isAlcoholic;
+    protected float $volume;
 
-    public function __construct(DateTime $expireDate, float $tax, string $name, float $weight, float $price, bool $isNew, bool $isAlcoholic, float $volume)
+    public function __construct(string $name, float $weight, float $price, bool $isNew, string $expireDate, float $tax, bool $isAlcoholic, float $volume)
     {
-        parent::__construct($expireDate, $tax, $name, $weight, $price, $isNew);
-        $this->volume = $volume;
-
-        if ($this->isAlcoholic === true) {
-            $tax = 21;
-        }
-
+        parent::__construct($name, $weight, $price, $isNew, $expireDate, $tax);
         $this->isAlcoholic = $isAlcoholic;
+        if ($this->isAlcoholic) {
+            $this->tax = 21;
+        }
+        $this->volume = $volume;
     }
 
     public function __toString(): string
@@ -84,18 +82,18 @@ class Drink extends Expendable implements Naming
     }
 
     public function getIsAlcoholic(): bool {
-        return $this->IsAlcoholic;
+        return $this->isAlcoholic;
     }
 
-    public function setIsAlcoholic($isAlcoholic): void {
-        $this->IsAlcoholic = $isAlcoholic;
+    public function setIsAlcoholic(bool $isAlcoholic): void {
+        $this->isAlcoholic = $isAlcoholic;
     }
 
     public function getVolume(): float {
         return $this->volume;
     }
 
-    public function setVolume($volume): void {
+    public function setVolume(float $volume): void {
         $this->volume = $volume;
     }
 

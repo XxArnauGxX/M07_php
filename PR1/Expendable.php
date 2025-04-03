@@ -5,8 +5,8 @@ require_once 'Naming.php';
 
 class Expendable extends Item implements Naming
 {
-    public DateTime $expireDate;
-    public float $tax;
+    protected DateTime $expireDate;
+    protected float $tax;
 
     protected function __construct(string $name, float $weight, float $price, bool $isNew, string $expireDate, float $tax = 10)
     {
@@ -28,11 +28,6 @@ class Expendable extends Item implements Naming
     public function isExpired(): bool
     {
         $actualDate = new DateTime();
-
-        if ($this->expireDate < $actualDate) {
-            return true;
-        } else {
-            return false;
-        }
+        return $this->expireDate < $actualDate;
     }
 }
