@@ -30,4 +30,9 @@ class Expendable extends Item implements Naming
         $actualDate = new DateTime();
         return $this->expireDate < $actualDate;
     }
+
+    public function getExpireDate(): DateTime
+    {
+        return $this->expireDate;
+    }
 }

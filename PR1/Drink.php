@@ -20,11 +20,13 @@ class Drink extends Expendable implements Naming
         return "Name: {$this->name}, Weight: {$this->weight}kg, Price: {$this->price}€, Is new: " . ($this->isNew ? 'true' : 'false') . ", Expire date: {$this->expireDate->format('Y-m-d')}, Tax: {$this->tax}, Alcoholic: " . ($this->isAlcoholic ? 'true' : 'false') . ", Volume: {$this->volume}";
     }
 
-    public function toLiters(): float {
+    public function toLiters(): float
+    {
         return $this->volume / 1000;
     }
 
-    public function toGallons(): float {
+    public function toGallons(): float
+    {
         return $this->volume / 4546.09;
     }
 
@@ -81,20 +83,23 @@ class Drink extends Expendable implements Naming
         $this->isNew = $isNew;
     }
 
-    public function getIsAlcoholic(): bool {
+    public function getIsAlcoholic(): bool
+    {
         return $this->isAlcoholic;
     }
 
-    public function setIsAlcoholic(bool $isAlcoholic): void {
+    public function setIsAlcoholic(bool $isAlcoholic): void
+    {
         $this->isAlcoholic = $isAlcoholic;
     }
 
-    public function getVolume(): float {
+    public function getVolume(): float
+    {
         return $this->volume;
     }
 
-    public function setVolume(float $volume): void {
+    public function setVolume(float $volume): void
+    {
         $this->volume = $volume;
     }
-
 }
